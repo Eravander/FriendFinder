@@ -155,7 +155,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $("#submitBtn").on("click", function() {
-        //form validation
+        //form validation: was every section answered?
         function validateForm() {
             var isValid = true;
             $('.validate').each(function() {
@@ -170,7 +170,7 @@ $(document).ready(function() {
             });
             return isValid;
         }
-        //if everything is filled
+        //checks to see if form was fully filled out
         if (validateForm() == true) {
             //creates a new friend from the values submitted
             var newFriend = {
@@ -193,7 +193,6 @@ $(document).ready(function() {
             var currentURL = window.location.origin;
             //AJAX posts the data to friends API.
             $.post(currentURL + "/api/friends", newFriend, function(data) {
-                //Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#matchName").text(data.name);
                 $("#matchPic").attr("src", data.profilePic);
             });
