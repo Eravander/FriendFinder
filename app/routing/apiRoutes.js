@@ -12,17 +12,16 @@ module.exports = function (app) {
     var newFriendScores = req.body.scores;
     var scoresArray = [];
     var bestMatch = 0;
-
+    
     //runs through all current friends in list
     friends.forEach(function (player) {
       var totalDifference = 0;
       //run through scores to compare friends
       newFriendScores.forEach(function (scores) {
         totalDifference += (Math.abs(parseInt(player.scores) - parseInt(scores)));
-      });
-
-      //push results into scoresArray
+        //push results into scoresArray
       scoresArray.push(totalDifference);
+      });
     });
 
     //after all friends are compared, find best match
