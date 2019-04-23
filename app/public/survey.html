@@ -194,7 +194,7 @@ $(document).ready(function() {
             //AJAX posts the data to friends API.
             $.post(currentURL + "/api/friends", newFriend, function(data) {
                 $("#matchName").text(data.name);
-                $("#matchPic").attr("src", data.profilePic);
+                $("#matchPic").attr("src", data.photo);
             });
             // Show the modal with the best match
                 $('.modal').modal();

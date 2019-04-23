@@ -10,8 +10,9 @@ module.exports = function (app) {
   app.post("/api/friends", function (req, res) {
     //grabs the new friend's scores to compare with friends in friends array
     var newFriendScores = req.body.scores;
-    var scoresArray = [];
-    var bestMatch = 0;
+    // var scoresArray = [];
+    var bestMatch = 100;
+    var bff;
 
     //runs through all current friends in list
     friends.forEach(function (player) {
@@ -19,20 +20,24 @@ module.exports = function (app) {
       //run through scores to compare friends
       newFriendScores.forEach(function (scores) {
         totalDifference += (Math.abs(parseInt(player.scores) - parseInt(scores)));
+        //push results into scoresArray
+        // scoresArray.push(totalDifference);
+        // console.log(scoresArray)
+        if (totalDifference <= bestMatch) {
+          bestMatch = totalDifference;
+         bff = player;
+        }
       });
-      //push results into scoresArray
-      scoresArray.push(totalDifference);
+      
     });
 
     //after all friends are compared, find best match
-    scoresArray.forEach(function (match) {
-      if (match <= match[bestMatch]) {
-        bestMatch = match;
-      }
-    });
+    // scoresArray.forEach(function (match) {
+      
+    // });
 
     //return bestMatch data
-    var bff = friends[bestMatch];
+    
     res.json(bff);
 
     //pushes new submission into the friendsList array

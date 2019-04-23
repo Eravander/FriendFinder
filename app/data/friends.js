@@ -1,6 +1,6 @@
 var friends = [{
   "name":"Ahmed",
-  "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+  "photo":"https://nes.princeton.edu/sites/nes/files/styles/pwds_people_full/public/people/1ahmed_almaazmi_.jpg?itok=Y7y24V2i",
   "scores":[
       5,
       1,
